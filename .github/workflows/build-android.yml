@@ -1,0 +1,25 @@
+name: Build Android APK
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Build Android APK with Kivy Buildozer container
+        run: |
+          docker run --rm -u $(id -u):$(id -g) -v "${{ github.workspace }}:/home/user/hostcwd" -w /home/user/hostcwd kivy/buildozer:2024-07-17 buildozer android debug --verbose
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: seed-blend-android-apk
+          path: bin/*.apk
