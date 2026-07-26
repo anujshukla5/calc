@@ -5,11 +5,10 @@ package.domain = org.seedblend
 source.dir = .
 source.include_exts = py,kv,json
 source.exclude_dirs = tests,gui,__pycache__
-source.include_patterns = kivy_app.py,seed_blend_optimizer/*.py,README.md
 source.main = kivy_app.py
 version = 1.0.0
 package.version_code = 1
-requirements = python3,kivy
+requirements = python3,kivy,Pillow
 orientation = portrait
 fullscreen = 0
 log_level = 2
@@ -20,7 +19,8 @@ android.api = 33
 android.minapi = 21
 android.ndk = 25c
 android.permissions = 
-p4a.branch = master
+p4a.branch = develop
+android.gradle_dependencies = androidx.core:core:1.9.0
 
 [app:android]
 # Uncomment and set if you want a custom icon and launch image.

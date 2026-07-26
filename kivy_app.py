@@ -7,6 +7,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.properties import BooleanProperty, ListProperty, NumericProperty, ObjectProperty, StringProperty
 from kivy.storage.jsonstore import JsonStore
+from kivy.utils import platform
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
